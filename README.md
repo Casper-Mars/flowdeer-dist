@@ -48,3 +48,14 @@ AI tools for complex workflows and deep thoughts
 1. 下载本仓库代码
 1. [docs](./docs/) 目录下为即为独立部署版代码，可复制到支持静态网页的服务器、或者对象存储
 1. 注意服务器需要支持 WASM 文件。
+
+#### 本地一键部署
+
+```bash
+docker run -d \
+  --name web \
+  -p 8080:80 \
+  -v $(pwd)/docs:/var/www/html \
+  -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf \
+  nginx:stable-alpine
+```
